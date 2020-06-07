@@ -10,7 +10,7 @@ export class ApiService {
         this.baseUrl = `${process.env.REACT_APP_TESTAPIURL}/${ApiService.TEST_URL}`;
     }
 
-    async getTest(): Promise<Response<Array<Test>>> {
-        return await axios.get(this.baseUrl + '?query=ㅅ');
+    async getTest(queryParam: string): Promise<Response<Array<Test>>> {
+        return await axios.get(this.baseUrl + '?query=' + queryParam);
     }
 }
