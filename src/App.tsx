@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {ApiService} from './services/api.service';
 import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@material-ui/core';
 import {Test} from './interfaces/test';
 
 
-class App extends React.Component {
+class App extends Component {
     public rows: Array<Test>;
     private apiService: ApiService;
 
-    constructor() {
-        super('d');
+    constructor(props: Readonly<{}>) {
+        super(props);
         this.apiService = new ApiService();
         this.rows = [
             {

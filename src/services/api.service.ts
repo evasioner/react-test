@@ -3,15 +3,14 @@ import {Response} from '../interfaces/response';
 import {Test} from '../interfaces/test';
 
 export class ApiService {
-    static TEST_URL: string = 'test';
-    private baseUrl: any;
+    static TEST_URL: string = 'tests';
+    private baseUrl: string;
 
     constructor() {
-        this.baseUrl = process.env.TESTAPIURL;
+        this.baseUrl = `${process.env.REACT_APP_TESTAPIURL}/${ApiService.TEST_URL}`;
     }
 
     async getTest(): Promise<Response<Array<Test>>> {
-        console.log('12313213');
-        return await axios.get('http://localhost:9090');
+        return await axios.get(this.baseUrl + '?query=ㅅ');
     }
 }
